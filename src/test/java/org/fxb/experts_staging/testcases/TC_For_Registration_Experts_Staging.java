@@ -31,16 +31,16 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Actions act = new Actions(driver);
 		Thread.sleep(3000);
 		JSExecutor.sendTextToTextBox("//input[@id='user_firstname']", "Mayur");
-		JSExecutor.sendTextToTextBox("//input[@id='user_lastname']", "Emp 19");		
+		JSExecutor.sendTextToTextBox("//input[@id='user_lastname']", "Emp 28");		
 		JSExecutor.sendTextToTextBox("//input[@id='user_password']", "Fxbytes@123");		
 		JSExecutor.sendTextToTextBox("//input[@id='confirm_password']", "Fxbytes@123");
 		/*Scroll until element visible*/
 		JSExecutor.scrollToElement("//input[@id='personal_email']");
 		/*enter email and other details*/
-		JSExecutor.sendTextToTextBox("//input[@id='user_email']", "mayur.charvande+995@fxbytes.com");		
-		JSExecutor.sendTextToTextBox("//input[@id='verify_user_email']", "mayur.charvande+995@fxbytes.com");		
-		JSExecutor.sendTextToTextBox("//input[@id='personal_email']", "mayur.charvande+995@fxbytes.com");		
-		JSExecutor.sendTextToTextBox("//input[@id='conf_personal_email']", "mayur.charvande+995@fxbytes.com");
+		JSExecutor.sendTextToTextBox("//input[@id='user_email']", "mayur.charvande+1006@fxbytes.com");		
+		JSExecutor.sendTextToTextBox("//input[@id='verify_user_email']", "mayur.charvande+1006@fxbytes.com");		
+		JSExecutor.sendTextToTextBox("//input[@id='personal_email']", "mayur.charvande+1006@fxbytes.com");		
+		JSExecutor.sendTextToTextBox("//input[@id='conf_personal_email']", "mayur.charvande+1006@fxbytes.com");
 		JSExecutor.scrollToElement("//button[@id='register-step-three']");
 		/*Entering Value in Auto Suggest Dropdown for Current Employer Name*/
 		JSExecutor.jsClick("//div[text()='select']");
@@ -91,7 +91,7 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Thread.sleep(3000);
 		JSExecutor.jsClick("//button[text()='Yes, do it!']");
 		Thread.sleep(15000);
-		JSExecutor.jsClick("//input[@id='otp-verify-submit']");//not getting clicked--> need to fix this 01-05-2023
+		JSExecutor.jsClick("//input[@id='otp-verify-submit']");
 		Thread.sleep(3000);
 		JSExecutor.jsClick("//button[text()='OK']");
 		/*clicking on the Next button*/
@@ -156,7 +156,8 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 	{
 		JSExecutor.sendTextToTextBox("//input[@id='years_in_legal_ops']", "7");
 		JSExecutor.sendTextToTextBox("//input[@id='year_direct_managing']", "7");
-/*Step 1 : Selecting Option "Are you licensed Attorney ?"*/			
+/*Step 1 : Selecting Option "Are you licensed Attorney ?"*/		
+		Actions act = new Actions(driver);
 		JSExecutor.jsClick("//div[text()='Select Are You a Licensed Attorney?']");
 		driver.findElement(By.xpath("(//input[@type='search'])[5]")).sendKeys("Y");
 		Thread.sleep(1000);
@@ -164,20 +165,9 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[5]")).sendKeys("s");
 		Thread.sleep(1000);
-/*Step 2 : Selecting Option "Are you licensed Attorney ?"*/		
-		List<WebElement> AreYouAttorney_list = driver.findElements(By.xpath("//a[@id='bs-select-5-1']//descendant::span"));
-		Thread.sleep(2000);
-		for(WebElement c : AreYouAttorney_list)
-		{
-			Thread.sleep(2000);
-			String name = c.getText();
-			System.out.println("-->"+c.getText());
-			if(name.equalsIgnoreCase("yes")) 
-			{
-				c.click();           ////THIS LINE IS NOT RUNNING, EVEN AFTER CLICKING ACTION 'YES' VVALUE IS NOT GETTING SELECTED 
-				break;
-			}
-		}
+		act.sendKeys(Keys.ENTER).perform();
+/* Selecting Title */
+
 		JSExecutor.sendTextToTextBox("//input[@id='title']", "QA");
 		
 /*Step 1 : Selecting Current Role*/			
@@ -212,20 +202,21 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[12]")).sendKeys("2");
 		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
 /*Step 2 : Selecting Start Date*/		
-		List<WebElement> startDate_list = driver.findElements(By.xpath("//div[@id='bs-select-12']//descendant::ul[@class='dropdown-menu inner ']//descendant::li"));
-		Thread.sleep(2000);
-		for(WebElement e : startDate_list)
-		{
-			Thread.sleep(2000);
-			String name = e.getText();
-			System.out.println("-->"+e.getText());
-			if(name.equalsIgnoreCase("2022")) 
-			{
-				e.click();
-				break;
-			}
-		}
+//		List<WebElement> startDate_list = driver.findElements(By.xpath("//div[@id='bs-select-12']//descendant::ul[@class='dropdown-menu inner ']//descendant::li"));
+//		Thread.sleep(2000);
+//		for(WebElement e : startDate_list)
+//		{
+//			Thread.sleep(2000);
+//			String name = e.getText();
+//			System.out.println("-->"+e.getText());
+//			if(name.equalsIgnoreCase("2022")) 
+//			{
+//				e.click();
+//				break;
+//			}
+//		}
 /*Step 1 : Selecting Option licensed Attorney */			
 		JSExecutor.jsClick("(//div[text()='Select Licensed Attorney Role'])[1]");
 		driver.findElement(By.xpath("(//input[@type='search'])[14]")).sendKeys("Y");
@@ -234,20 +225,21 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[14]")).sendKeys("s");
 		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
 /*Step 2 : Selecting Option licensed Attorney */		
-		List<WebElement> Licensed_Attorney_Role_list = driver.findElements(By.xpath("//div[@id='bs-select-14']//descendant::ul//descendant::li"));
-		Thread.sleep(2000);
-		for(WebElement f : Licensed_Attorney_Role_list)
-		{
-			Thread.sleep(2000);
-			String name = f.getText();
-			System.out.println("-->"+f.getText());
-			if(name.equalsIgnoreCase("yes")) 
-			{
-				f.click();
-				break;
-			}
-		}
+//		List<WebElement> Licensed_Attorney_Role_list = driver.findElements(By.xpath("//div[@id='bs-select-14']//descendant::ul//descendant::li"));
+//		Thread.sleep(2000);
+//		for(WebElement f : Licensed_Attorney_Role_list)
+//		{
+//			Thread.sleep(2000);
+//			String name = f.getText();
+//			System.out.println("-->"+f.getText());
+//			if(name.equalsIgnoreCase("yes")) 
+//			{
+//				f.click();
+//				break;
+//			}
+//		}
 /*Step 1: Selecting Option 'Do You Report to the GC?'*/
 		JSExecutor.jsClick("//div[text()='Do You Report to the GC']");
 		driver.findElement(By.xpath("(//input[@type='search'])[17]")).sendKeys("Y");
@@ -256,20 +248,21 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[17]")).sendKeys("s");
 		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
 /*Step 2: Selecting Option 'Do You Report to the GC?' */
-		List<WebElement> Do_You_Report_to_the_GC = driver.findElements(By.xpath("//div[@id='bs-select-17']//descendant::ul//descendant::li"));
-		Thread.sleep(2000);
-		for(WebElement g : Do_You_Report_to_the_GC)
-		{
-			Thread.sleep(2000);
-			String name = g.getText();
-			System.out.println("-->"+g.getText());
-			if(name.equalsIgnoreCase("yes")) 
-			{
-				g.click();
-				break;
-			}
-		}
+//		List<WebElement> Do_You_Report_to_the_GC = driver.findElements(By.xpath("//div[@id='bs-select-17']//descendant::ul//descendant::li"));
+//		Thread.sleep(2000);
+//		for(WebElement g : Do_You_Report_to_the_GC)
+//		{
+//			Thread.sleep(2000);
+//			String name = g.getText();
+//			System.out.println("-->"+g.getText());
+//			if(name.equalsIgnoreCase("yes")) 
+//			{
+//				g.click();
+//				break;
+//			}
+//		}
 /*clicking on he 'Years You Managed People at this Company '*/
 		JSExecutor.sendTextToTextBox("(//input[@id='no_of_years_managed'])[1]", "7");
 /*Step 1: Selecting Option 'US State in which You Work'*/
@@ -287,7 +280,6 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		{
 			Thread.sleep(2000);
 			String name = g.getText();
-			System.out.println("-->"+g.getText());
 			if(name.equalsIgnoreCase("california")) 
 			{
 				g.click();
@@ -300,62 +292,182 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[20]")).sendKeys("t");
 		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
 /*Step 2: Selecting Option 'Department' */
-		List<WebElement> Department = driver.findElements(By.xpath("//div[@id='bs-select-20']//descendant::ul//descendant::li"));
-		Thread.sleep(2000);
-		for(WebElement g : Department)
-		{
-			Thread.sleep(2000);
-			String name = g.getText();
-			System.out.println("-->"+g.getText());
-			if(name.equalsIgnoreCase("IT")) 
-			{
-				g.click();
-				break;
-			}
-		}
+//		List<WebElement> Department = driver.findElements(By.xpath("//div[@id='bs-select-20']//descendant::ul//descendant::li"));
+//		Thread.sleep(2000);
+//		for(WebElement g : Department)
+//		{
+//			Thread.sleep(2000);
+//			String name = g.getText();
+//			System.out.println("-->"+g.getText());
+//			if(name.equalsIgnoreCase("IT")) 
+//			{
+//				g.click();
+//				break;
+//			}
+//		}
 /*Step 1: Selecting Option 'Legal Department Size'*/
 		JSExecutor.jsClick("(//div[text()='Select Legal Department Size'])[1]");
 		driver.findElement(By.xpath("(//input[@type='search'])[21]")).sendKeys("2");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[21]")).sendKeys("5");
 		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
 /*Step 2: Selecting Option 'Legal Department Size' */
-		List<WebElement> Legal_Department_Size = driver.findElements(By.xpath("//div[@id='bs-select-21']//descendant::ul//descendant::li"));
-		Thread.sleep(2000);
-		for(WebElement g : Legal_Department_Size)
-		{
-			Thread.sleep(2000);
-			String name = g.getText();
-			System.out.println("-->"+g.getText());
-			if(name.equalsIgnoreCase("25 or Fewer")) 
-			{
-				g.click();
-				break;
-			}
-		}
+//		List<WebElement> Legal_Department_Size = driver.findElements(By.xpath("//div[@id='bs-select-21']//descendant::ul//descendant::li"));
+//		Thread.sleep(2000);
+//		for(WebElement g : Legal_Department_Size)
+//		{
+//			Thread.sleep(2000);
+//			String name = g.getText();
+//			System.out.println("-->"+g.getText());
+//			if(name.equalsIgnoreCase("25 or Fewer")) 
+//			{
+//				g.click();
+//				break;
+//			}
+//		}
 		/*Step 1: Selecting Option 'Do You Lead The Legal Ops Team?'*/
 		JSExecutor.jsClick("//div[text()='Select Do You Lead The Legal Ops Team?']");
 		driver.findElement(By.xpath("(//input[@type='search'])[22]")).sendKeys("n");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[22]")).sendKeys("o");
 		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
 		/*Step 2: Selecting Option 'Do You Lead The Legal Ops Team?' */
-		List<WebElement> Do_You_Lead_The_Legal_Ops_Team = driver.findElements(By.xpath("//div[@id='bs-select-22']//descendant::ul//descendant::li"));
-		Thread.sleep(2000);
-		for(WebElement g : Do_You_Lead_The_Legal_Ops_Team)
-		{
-			Thread.sleep(2000);
-			String name = g.getText();
-			System.out.println("-->"+g.getText());
-			if(name.equalsIgnoreCase("no")) 
-			{
-				g.click();
-				break;
-			}
-		}
+//		List<WebElement> Do_You_Lead_The_Legal_Ops_Team = driver.findElements(By.xpath("//div[@id='bs-select-22']//descendant::ul//descendant::li"));
+//		Thread.sleep(2000);
+//		for(WebElement g : Do_You_Lead_The_Legal_Ops_Team)
+//		{
+//			Thread.sleep(2000);
+//			String name = g.getText();
+//			System.out.println("-->"+g.getText());
+//			if(name.equalsIgnoreCase("no")) 
+//			{
+//				g.click();
+//				break;
+//			}
+//		}
+
 /*clicking on the Next button*/
 		Thread.sleep(3000);
 		JSExecutor.jsClick("(//button[@id='final-submit'])[2]");
+	}
+	@Test(priority=6)
+	public void Step_5_Annual_Compensation() throws InterruptedException
+	{
+		Thread.sleep(2000);
+	driver.findElement(By.xpath("(//input[@id='base_comp_2020'])[1]")).sendKeys("10000");	
+	driver.findElement(By.xpath("(//input[@id='comp_bonus_2020'])[1]")).sendKeys("10000");
+	driver.findElement(By.xpath("(//input[@id='comp_stock_2020'])[1]")).sendKeys("10000");
+/*Step 1 : Selecting Job Level*/			
+	JSExecutor.jsClick("//div[text()='Select']");
+	driver.findElement(By.xpath("(//input[@type='search'])[43]")).sendKeys("S");
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("(//input[@type='search'])[43]")).sendKeys("r");
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("(//input[@type='search'])[43]")).sendKeys(".");
+	Thread.sleep(1000);
+/*Step 2 : Selecting Current Role*/		
+	List<WebElement> currentRole_list = driver.findElements(By.xpath("//div[@id='bs-select-50']//descendant::ul[@class='dropdown-menu inner ']//descendant::li"));
+	Thread.sleep(2000);
+	for(WebElement d : currentRole_list)
+	{
+		Thread.sleep(2000);
+		String name = d.getText();
+		System.out.println("-->"+d.getText());
+		if(name.equalsIgnoreCase("Sr. Analyst")) 
+		{
+			d.click();
+			break;
+		}
+	}
+	driver.findElement(By.xpath("(//input[@id='base_comp_2020'])[2]")).sendKeys("10000");	
+	driver.findElement(By.xpath("(//input[@id='comp_bonus_2020'])[2]")).sendKeys("10000");
+	driver.findElement(By.xpath("(//input[@id='comp_stock_2020'])[2]")).sendKeys("10000");
+	/*clicking on the Next button*/
+	Thread.sleep(1000);
+	JSExecutor.jsClick("(//button[@id='final-submit'])[3]");
+	}
+@Test(priority=7)
+	public void Step_5_Education() throws InterruptedException
+	{
+		Actions act = new Actions(driver);
+/*Step 1: Selecting Option 'Degree/Certification'*/
+		JSExecutor.jsClick("(//select[@id='education_name'])[1]");
+		driver.findElement(By.xpath("(//input[@type='search'])[44]")).sendKeys("j");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[44]")).sendKeys("d");
+		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
+/*Step 1 : Selecting School/University Attended */			
+		JSExecutor.jsClick("(//div[@class='filter-option'])[45]");
+		driver.findElement(By.xpath("(//input[@type='search'])[45]")).sendKeys("a");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[45]")).sendKeys("m");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[45]")).sendKeys("e");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[45]")).sendKeys("r");
+		Thread.sleep(1000);
+/*Step 2 : Selecting School/University Attended*/		
+		List<WebElement> currentRole_list = driver.findElements(By.xpath("//div[@id='bs-select-24']//descendant::ul[@class='dropdown-menu inner']//descendant::li"));
+		Thread.sleep(2000);
+		for(WebElement d : currentRole_list)
+		{
+			Thread.sleep(2000);
+			String name = d.getText();
+			if(name.equalsIgnoreCase("American Academy of Art")) 
+			{
+				d.click();
+				break;
+			}
+		}
+/*Step 1: Selecting Option 'Program Level'*/
+		JSExecutor.jsClick("(//div[text()='Select Program Level'])[1]");
+		driver.findElement(By.xpath("(//input[@type='search'])[46]")).sendKeys("c");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[46]")).sendKeys("e");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[46]")).sendKeys("r");
+		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
+/*Step 1 : Selecting Start Date*/			
+		JSExecutor.jsClick("(//div[text()='Select Start Date (Year Only)'])[2]");
+		driver.findElement(By.xpath("(//input[@type='search'])[47]")).sendKeys("2");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[47]")).sendKeys("0");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[47]")).sendKeys("2");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[47]")).sendKeys("2");
+		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
+/*Step 1 : Selecting End Date*/			
+		JSExecutor.jsClick("//div[text()='Select End Date (Year only)']");
+		driver.findElement(By.xpath("(//input[@type='search'])[48]")).sendKeys("2");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[48]")).sendKeys("0");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[48]")).sendKeys("2");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[48]")).sendKeys("3");
+		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
+/*Step 1 : Selecting Area of Study*/			
+		JSExecutor.jsClick("(//div[text()='Select Area of Study'])[1]");
+		driver.findElement(By.xpath("(//input[@type='search'])[49]")).sendKeys("a");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[49]")).sendKeys("r");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[49]")).sendKeys("t");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//input[@type='search'])[49]")).sendKeys("s");
+		Thread.sleep(1000);
+		act.sendKeys(Keys.ENTER).perform();
+/*clicking on the Next button*/
+		Thread.sleep(1000);
+		JSExecutor.jsClick("(//button[@id='final-submit'])[4]");
 	}
 }
