@@ -9,6 +9,7 @@
           <include name="mobileNumberVerification"/>
           <include name="closeBrowser"/>
           <include name="step_2_Create_Your_Account"/>
+          <include name="step_1_Confirm_Eligibility"/>
         </methods>
       </class> <!-- org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging -->
     </classes>

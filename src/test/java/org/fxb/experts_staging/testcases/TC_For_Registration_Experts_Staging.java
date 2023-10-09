@@ -19,7 +19,8 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 	public void step_1_Confirm_Eligibility() throws IOException {
 		driver.findElement(By.xpath("//label[@for='qualification_check']")).click();// For Employed User
 		driver.findElement(By.xpath("//label[@for='agree2']")).click();
-		driver.findElement(By.xpath("(//button[@type='button'])[1]")).click();
+		//driver.findElement(By.xpath("(//button[@type='button'])[1]")).click();
+		JSExecutor.jsClick("(//button[@type='button'])[1]"); // on the 1440 resolution there is a footer hence you can use this code line instead of the above
 	}
 
 	@Test(priority = 2, dataProviderClass = Excel_File_Reader.class, dataProvider = "TestData")
@@ -73,14 +74,14 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 
 	}
 
-	@Test(priority = 3, dataProviderClass = Excel_File_Reader.class, dataProvider = "TestData")
-	public void mobileNumberVerification() throws InterruptedException {
+	@Test(priority = 3, dataProviderClass = Excel_File_Reader.class, dataProvider = "Excel_Mobile_Data")
+	public void mobileNumberVerification(String mob) throws InterruptedException {
 		Actions act = new Actions(driver);
 		/* Select value from the dropdown */
 		Select dp = new Select(driver.findElement(By.xpath("//select[@id='mobile_country_code']")));
 		dp.selectByValue("+91");
 		/* verify number */
-		JSExecutor.sendTextToTextBox("//input[@id='user_mobile']", "7620248349");
+		JSExecutor.sendTextToTextBox("//input[@id='user_mobile']", "mob"); // here we are fetching the mobile number from the Excel Sheet 
 		act.sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
 		Thread.sleep(3000);
 		JSExecutor.jsClick("//button[text()='Verify']");
