@@ -14,6 +14,12 @@ public class JSExecutor extends TC_For_Registration_Experts_Staging
 		WebElement element = driver.findElement(By.xpath(elementXpath));
 		jse.executeScript("arguments[0].value=arguments[1];", element, textToEnter);
 	}
+	public static void sendNumberToNumberField(String elementXpath, double integerToEnter)
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		WebElement element = driver.findElement(By.xpath(elementXpath));
+		jse.executeScript("arguments[0].value=arguments[1];", element, integerToEnter);
+	}
 	public static void scrollToElement(String xpathOfElement)
 	{
 		WebElement element = driver.findElement(By.xpath(xpathOfElement));

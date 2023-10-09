@@ -16,11 +16,12 @@ import org.testng.annotations.Test;
 public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_Registration {
 
 	@Test(priority = 1)
-	public void step_1_Confirm_Eligibility() throws IOException {
+	public void step_1_Confirm_Eligibility() throws IOException, InterruptedException {
 		driver.findElement(By.xpath("//label[@for='qualification_check']")).click();// For Employed User
 		driver.findElement(By.xpath("//label[@for='agree2']")).click();
 		//driver.findElement(By.xpath("(//button[@type='button'])[1]")).click();
 		JSExecutor.jsClick("(//button[@type='button'])[1]"); // on the 1440 resolution there is a footer hence you can use this code line instead of the above
+		Thread.sleep(2000);
 	}
 
 	@Test(priority = 2, dataProviderClass = Excel_File_Reader.class, dataProvider = "TestData")
@@ -46,7 +47,7 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("F");
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("x");
+     	driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("x");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("b");
 		Thread.sleep(1000); 
@@ -81,7 +82,7 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		Select dp = new Select(driver.findElement(By.xpath("//select[@id='mobile_country_code']")));
 		dp.selectByValue("+91");
 		/* verify number */
-		JSExecutor.sendTextToTextBox("//input[@id='user_mobile']", "mob"); // here we are fetching the mobile number from the Excel Sheet 
+		JSExecutor.sendTextToTextBox("//input[@id='user_mobile']", mob); // here we are fetching the mobile number from the Excel Sheet 
 		act.sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
 		Thread.sleep(3000);
 		JSExecutor.jsClick("//button[text()='Verify']");
