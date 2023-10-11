@@ -12,8 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 
 public class Excel_File_Reader {
-	/*
-	 * Below Data Provider is used for fetching the String data from the excel sheet
+	/* Below Data Provider is used for fetching the String data from the excel sheet
 	 * Name, password, emails
 	 */
 	@DataProvider(name="TestData")
@@ -52,19 +51,21 @@ public class Excel_File_Reader {
 		XSSFWorkbook wk2 = new XSSFWorkbook(f2);
 		XSSFSheet s2 = wk2.getSheet("Sheet1");
 		int r2 = s2.getPhysicalNumberOfRows();
-		/*
-		 * Even though if your excel sheet have multiple columns and if you are wishing to fetch the data 
+		/* Even though if your excel sheet have multiple columns and if you are wishing to fetch the data 
 		 * from the any perticular column then use the below code
 		 */
 		Object[][] arr2 = new Object[r2][1]; // [r2]: for size of the rows & [1]: for size of the column you wants
-		DataFormatter dataFormatter = new DataFormatter(); // If you wants to convert the Numeric cell value to the String value then you need to use this DataFormater class and its methods
+		DataFormatter dataFormatter = new DataFormatter(); 
+		/* DataFormatter Class: If you wants to convert the Numeric cell value to the String value 
+		 * then you need to use this DataFormater class and its methods
+		 */
 		for(int i=1; i<r2; i++)
 		{
 			XSSFRow r3 = s2.getRow(i);
 			XSSFCell mobile = r3.getCell(4);// this will get the value of the 4th column from your Excel sheet
 			arr2[i][0] = dataFormatter.formatCellValue(mobile); // this method will convert the Numeric value to the String value
 			System.out.println("--> " + dataFormatter.formatCellValue(mobile));
-			// Convert the numeric cell to a String
+			/* Convert the numeric cell to a String*/
 			// arr2[i][0] = mobile.getStringCellValue(); //this will get the value from the column and then store it into the place [i][0] and then this will be used for returning the value at this place
 		}
 		return arr2;

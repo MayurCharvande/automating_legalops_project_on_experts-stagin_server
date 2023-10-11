@@ -33,6 +33,16 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		JSExecutor.sendTextToTextBox("//input[@id='user_lastname']", lname); // 'lname' is the last name of the user
 		JSExecutor.sendTextToTextBox("//input[@id='user_password']", password);
 		JSExecutor.sendTextToTextBox("//input[@id='confirm_password']", password);
+		/*Mobile number verification code*/
+		Select dp = new Select(driver.findElement(By.xpath("//select[@id='mobile_country_code']")));
+		dp.selectByValue("+91");
+		act.sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@id='user_mobile']")).sendKeys("7");
+		Thread.sleep(1000);
+     	driver.findElement(By.xpath("//input[@id='user_mobile']")).sendKeys("0");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@id='user_mobile']")).sendKeys("4");
 		/* Scroll until element visible */
 		JSExecutor.scrollToElement("//input[@id='personal_email']");
 		/* enter email and other details */
@@ -40,9 +50,8 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		JSExecutor.sendTextToTextBox("//input[@id='verify_user_email']", email);
 		JSExecutor.sendTextToTextBox("//input[@id='personal_email']", email);
 		JSExecutor.sendTextToTextBox("//input[@id='conf_personal_email']", email);
-
 		JSExecutor.scrollToElement("//button[@id='register-step-three']"); 
-		// EnteringValue in Auto Suggest Dropdown for Current Employer Name
+		/*EnteringValue in Auto Suggest Dropdown for Current Employer Name*/
 		JSExecutor.jsClick("//div[text()='select']");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("F");
@@ -72,16 +81,19 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		//Action Events to double click on the captcha field
 		act.doubleClick(driver.findElement(By.xpath("//input[@id='captcha']"))).perform(); 
 		Thread.sleep(10000);
-
+		/* clicking on the Next button */
+//		Thread.sleep(2000);
+//		JSExecutor.jsClick("//button[@id='register-step-three']");
 	}
 
-	@Test(priority = 3, dataProviderClass = Excel_File_Reader.class, dataProvider = "Excel_Mobile_Data")
+	@Test(priority = 3, enabled = false, dataProviderClass = Excel_File_Reader.class, dataProvider = "Excel_Mobile_Data")
 	public void mobileNumberVerification(String mob) throws InterruptedException {
 		Actions act = new Actions(driver);
 		/* Select value from the dropdown */
 		Select dp = new Select(driver.findElement(By.xpath("//select[@id='mobile_country_code']")));
 		dp.selectByValue("+91");
 		/* verify number */
+		Thread.sleep(1000);
 		JSExecutor.sendTextToTextBox("//input[@id='user_mobile']", mob); // here we are fetching the mobile number from the Excel Sheet 
 		act.sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
 		Thread.sleep(3000);
