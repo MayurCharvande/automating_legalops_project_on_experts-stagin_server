@@ -1,5 +1,6 @@
 package org.fxb.experts_staging.js;
 
+import org.fxb.experts_staging.base.BaseClass;
 import org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

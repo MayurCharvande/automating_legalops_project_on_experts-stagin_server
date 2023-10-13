@@ -6,8 +6,8 @@
       <class name="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging">
         <methods>
           <include name="restrictionPage"/>
-          <include name="mobileNumberVerification"/>
           <include name="closeBrowser"/>
+          <include name="step_2_Create_Your_Account" invocation-numbers="1"/>
         </methods>
       </class> <!-- org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging -->
     </classes>

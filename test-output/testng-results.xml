@@ -1,34 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="5" total="7" passed="1" failed="0" skipped="1">
+<testng-results ignored="6" total="9" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-09T16:54:10 IST" name="Default suite" finished-at="2023-10-09T16:54:12 IST" duration-ms="1416">
+  <suite started-at="2023-10-13T18:28:41 IST" name="Default suite" finished-at="2023-10-13T18:28:56 IST" duration-ms="15897">
     <groups>
     </groups>
-    <test started-at="2023-10-09T16:54:10 IST" name="Default test" finished-at="2023-10-09T16:54:12 IST" duration-ms="1416">
+    <test started-at="2023-10-13T18:28:41 IST" name="Default test" finished-at="2023-10-13T18:28:56 IST" duration-ms="15897">
       <class name="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging">
-        <test-method is-config="true" signature="restrictionPage()[pri:0, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@7c729a55]" started-at="2023-10-09T16:53:51 IST" name="restrictionPage" finished-at="2023-10-09T16:54:10 IST" duration-ms="19266" status="PASS">
+        <test-method is-config="true" signature="restrictionPage()[pri:0, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-13T18:28:29 IST" name="restrictionPage" finished-at="2023-10-13T18:28:41 IST" duration-ms="11217" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- restrictionPage -->
-        <test-method signature="step_1_Confirm_Eligibility()[pri:1, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@7c729a55]" started-at="2023-10-09T16:54:10 IST" name="step_1_Confirm_Eligibility" finished-at="2023-10-09T16:54:11 IST" duration-ms="379" status="PASS">
+        <test-method signature="step_1_Confirm_Eligibility()[pri:1, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-13T18:28:41 IST" name="step_1_Confirm_Eligibility" finished-at="2023-10-13T18:28:41 IST" duration-ms="329" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- step_1_Confirm_Eligibility -->
-        <test-method signature="mobileNumberVerification(java.lang.String)[pri:2, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@7c729a55]" started-at="2023-10-09T16:54:12 IST" name="mobileNumberVerification" data-provider="Excel_Mobile_Data" finished-at="2023-10-09T16:54:12 IST" duration-ms="0" status="SKIP">
-          <exception class="java.lang.RuntimeException">
+        <test-method signature="step_2_Create_Your_Account(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-13T18:28:42 IST" name="step_2_Create_Your_Account" data-provider="TestData" finished-at="2023-10-13T18:28:45 IST" duration-ms="3202" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Mayur]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Charvande]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Fxbytes@123]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[mayur.charvande+4@fxbytes.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[7620248349]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- step_2_Create_Your_Account -->
+        <test-method signature="step_2_Create_Your_Account(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-13T18:28:45 IST" name="step_2_Create_Your_Account" data-provider="TestData" finished-at="2023-10-13T18:28:56 IST" duration-ms="10998" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Rahul ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Charvande]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Fxbytes@124]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[mayur.charvande+3@fxbytes.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[7045827283]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell]]>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //div[text()='select'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '18.0.2.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.168, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\Fxbytes\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:53689}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53689/devtoo..., se:cdpVersion: 109.0.5414.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: fbd7f618e9bbaa982d1db98d5345cffb]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
-at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:50)
-at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:146)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:798)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:740)
-at org.testng.internal.ParameterHandler.handleParameters(ParameterHandler.java:59)
-at org.testng.internal.ParameterHandler.createParameters(ParameterHandler.java:38)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:791)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //div[text()='select'] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '18.0.2.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.168, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\Fxbytes\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:53689}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53689/devtoo..., se:cdpVersion: 109.0.5414.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: fbd7f618e9bbaa982d1db98d5345cffb
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+at org.fxb.experts_staging.utilities.Waits.explicit_waitForElementToBe_Visible(Waits.java:32)
+at org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging.step_2_Create_Your_Account(TC_For_Registration_Experts_Staging.java:56)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -48,24 +120,13 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.IllegalStateException: Cannot get a STRING value from a NUMERIC cell
-at org.apache.poi.xssf.usermodel.XSSFCell.typeMismatch(XSSFCell.java:987)
-at org.apache.poi.xssf.usermodel.XSSFCell.getRichStringCellValue(XSSFCell.java:336)
-at org.apache.poi.xssf.usermodel.XSSFCell.getStringCellValue(XSSFCell.java:280)
-at org.fxb.web.library.Excel_File_Reader.read_mobile(Excel_File_Reader.java:55)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:577)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:77)
-at org.testng.internal.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:46)
-... 25 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- mobileNumberVerification -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@7c729a55]" started-at="2023-10-09T16:54:12 IST" name="closeBrowser" finished-at="2023-10-09T16:54:12 IST" duration-ms="696" status="PASS">
+        </test-method> <!-- step_2_Create_Your_Account -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-13T18:28:57 IST" name="closeBrowser" finished-at="2023-10-13T18:28:58 IST" duration-ms="726" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

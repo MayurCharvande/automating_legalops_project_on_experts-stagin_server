@@ -2,9 +2,9 @@ package org.fxb.experts_staging.testcases;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.fxb.experts_staging.base.InitiatingBrowser_for_Registration;
 import org.fxb.experts_staging.js.JSExecutor;
+import org.fxb.experts_staging.utilities.Waits;
 import org.fxb.web.library.Excel_File_Reader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -21,28 +21,27 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		driver.findElement(By.xpath("//label[@for='agree2']")).click();
 		//driver.findElement(By.xpath("(//button[@type='button'])[1]")).click();
 		JSExecutor.jsClick("(//button[@type='button'])[1]"); // on the 1440 resolution there is a footer hence you can use this code line instead of the above
-		Thread.sleep(2000);
+		//Thread.sleep(2000); //(if code working then remove this )
 	}
-
 	@Test(priority = 2, dataProviderClass = Excel_File_Reader.class, dataProvider = "TestData")
-	public void step_2_Create_Your_Account(String fname, String lname, String password, String email)
-			throws InterruptedException, IOException {
+	public void step_2_Create_Your_Account(String fname, String lname, String password, String email, String mob) throws InterruptedException, IOException 
+	{
 		Actions act = new Actions(driver);
-		Thread.sleep(3000);
+		//Thread.sleep(3000); //(if code working then remove this )
 		JSExecutor.sendTextToTextBox("//input[@id='user_firstname']", fname); // 'fname' is the first name of the user
 		JSExecutor.sendTextToTextBox("//input[@id='user_lastname']", lname); // 'lname' is the last name of the user
 		JSExecutor.sendTextToTextBox("//input[@id='user_password']", password);
 		JSExecutor.sendTextToTextBox("//input[@id='confirm_password']", password);
+		// Add debug statements to check for null values
+//		System.out.println("Checking driver: " + (driver != null)); // Checking null pointer exception
 		/*Mobile number verification code*/
 		Select dp = new Select(driver.findElement(By.xpath("//select[@id='mobile_country_code']")));
+//		System.out.println("Checking dp: " + (dp != null)); // Checking null pointer exception
 		dp.selectByValue("+91");
 		act.sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//input[@id='user_mobile']")).sendKeys("7");
-		Thread.sleep(1000);
-     	driver.findElement(By.xpath("//input[@id='user_mobile']")).sendKeys("0");
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//input[@id='user_mobile']")).sendKeys("4");
+		JSExecutor.sendTextToTextBox("//input[@id='user_mobile']", mob);
+//		driver.findElement(By.xpath("//input[@id='user_mobile']")).sendKeys(mob); // by using .sendkeys() it add the new mobile number next to old mobile number 
+		
 		/* Scroll until element visible */
 		JSExecutor.scrollToElement("//input[@id='personal_email']");
 		/* enter email and other details */
@@ -52,40 +51,46 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		JSExecutor.sendTextToTextBox("//input[@id='conf_personal_email']", email);
 		JSExecutor.scrollToElement("//button[@id='register-step-three']"); 
 		/*EnteringValue in Auto Suggest Dropdown for Current Employer Name*/
+		//Waits.explicit_waitForElementToBe_Present(By.xpath("//div[text()='select']"), 10);
+		Thread.sleep(3000);
 		JSExecutor.jsClick("//div[text()='select']");
+		//Waits.explicit_waitForElementToBe_Visible(By.xpath("(//input[@type='search'])[2]"), 2);// using waits
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("F");
-		Thread.sleep(1000);
+		Thread.sleep(500);
      	driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("x");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("b");
-		Thread.sleep(1000); 
-		//Get list of all the employers present in Auto suggestdropdown 
-		List<WebElement> employer_list = driver.findElements(By.xpath("//div[@id='bs-select-2']//descendant::ul[@class='dropdown-menu inner ']//descendant::li")); 
-		Thread.sleep(1000); 
-		for(WebElement a : employer_list) 
-		{
-			Thread.sleep(1000); 
-			String name = a.getText();
-			System.out.println("-->"+a.getText()); 
-			if(name.equalsIgnoreCase("fxbytes")) {
-				a.click(); 
-				break; 
-			} 
-		} 
-		Thread.sleep(2000);
-		//clicking checkbox by js executor
-		JSExecutor.jsClick("//label[text()='I have read and understood the Membership Terms and Conditions ']"); 
-		// Scroll down here now write a code to show Alert that "in 10 sec you have to enter captcha"
-		JSExecutor.jsAlert("Enter Captcha in 10 SECONDS"); 
-		//Action Events to double click on the captcha field
-		act.doubleClick(driver.findElement(By.xpath("//input[@id='captcha']"))).perform(); 
-		Thread.sleep(10000);
-		/* clicking on the Next button */
+//		Thread.sleep(1000); 
+//		//Get list of all the employers present in Auto suggestdropdown 
+//		List<WebElement> employer_list = driver.findElements(By.xpath("//div[@id='bs-select-2']//descendant::ul[@class='dropdown-menu inner ']//descendant::li")); 
+//		Thread.sleep(1000); 
+//		for(WebElement a : employer_list) 
+//		{
+//			Thread.sleep(1000); 
+//			String name = a.getText();
+//			System.out.println("-->"+a.getText()); 
+//			if(name.equalsIgnoreCase("fxbytes")) {
+//				a.click(); 
+//				break; 
+//			} 
+//		} 
 //		Thread.sleep(2000);
-//		JSExecutor.jsClick("//button[@id='register-step-three']");
+//		//clicking checkbox by js executor
+//		JSExecutor.jsClick("//label[text()='I have read and understood the Membership Terms and Conditions ']"); 
+//		// Scroll down here now write a code to show Alert that "in 10 sec you have to enter captcha"
+//		JSExecutor.jsAlert("Enter Captcha in 10 SECONDS"); 
+//		//Action Events to double click on the captcha field
+//		act.doubleClick(driver.findElement(By.xpath("//input[@id='captcha']"))).perform(); 
+//		Thread.sleep(10000);
 	}
-
+	@Test(priority = 3, enabled = false)
+	public void step_2_click_next_button() throws InterruptedException
+	{
+		/* clicking on the Next button */
+		Thread.sleep(1000);
+		JSExecutor.jsClick("//button[@id='register-step-three']");
+	}
 	@Test(priority = 3, enabled = false, dataProviderClass = Excel_File_Reader.class, dataProvider = "Excel_Mobile_Data")
 	public void mobileNumberVerification(String mob) throws InterruptedException {
 		Actions act = new Actions(driver);
@@ -104,11 +109,7 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		JSExecutor.jsClick("//input[@id='otp-verify-submit']");
 		Thread.sleep(3000);
 		JSExecutor.jsClick("//button[text()='OK']");
-		/* clicking on the Next button */
-		Thread.sleep(3000);
-		JSExecutor.jsClick("//button[@id='register-step-three']");
 	}
-
 	@Test(priority = 4, enabled = false)
 	public void step_3_Basic_Data() throws InterruptedException {
 		Actions act = new Actions(driver);

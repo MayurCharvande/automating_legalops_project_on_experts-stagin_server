@@ -20,12 +20,13 @@ public class Excel_File_Reader {
 	{ 
 		File f = new File("C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes_Experts-Staging\\Configuration\\Experts-Staging-TestData-ExcelSheet2.xlsx");
 		//(personal system path) C:\\Mayur Automation Practice\\Experts-Staging-TestData-ExcelSheet.xlsx
-		// (office system path) C:\Users\Fxbytes\eclipse-workspace\Fxbytes_Experts-Staging\Configuration\Experts-Staging-TestData-ExcelSheet.xlsx
+		//(office system path) C:\Users\Fxbytes\eclipse-workspace\Fxbytes_Experts-Staging\Configuration\Experts-Staging-TestData-ExcelSheet.xlsx
 				
 		XSSFWorkbook wk = new XSSFWorkbook(f); 
 		XSSFSheet s1 = wk.getSheet("Sheet1"); 
 		int r = s1.getPhysicalNumberOfRows();
-		Object[][] arr = new Object[r][4]; 
+		Object[][] arr = new Object[r-1][5]; 
+		DataFormatter dataFormatter = new DataFormatter(); // Only to convert mobile number to String value we have used this class
 		for(int i=1;i<r;i++) // if you Start i from 0 then it will also put the heading in the Login page which is present in the 0th row from the Excel Sheet 
 		{ 
 			XSSFRow r1 = s1.getRow(i);
@@ -33,12 +34,13 @@ public class Excel_File_Reader {
 			XSSFCell lastName = r1.getCell(1);
 			XSSFCell password = r1.getCell(2);
 			XSSFCell email = r1.getCell(3);
-			//XSSFCell mobile = r1.getCell(4);
-			arr[i][0] = firstName.getStringCellValue();
-			arr[i][1] = lastName.getStringCellValue(); 
-			arr[i][2] = password.getStringCellValue();
-			arr[i][3] = email.getStringCellValue();
+			XSSFCell mobile = r1.getCell(4);
+			arr[i-1][0] = firstName.getStringCellValue();
+			arr[i-1][1] = lastName.getStringCellValue(); 
+			arr[i-1][2] = password.getStringCellValue();
+			arr[i-1][3] = email.getStringCellValue();
 			//arr[i][4] = mobile.getStringCellValue();
+			arr[i-1][4] = dataFormatter.formatCellValue(mobile);
 		}
 		return arr;
 	}

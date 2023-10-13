@@ -2,9 +2,11 @@ package org.fxb.experts_staging.base;
 
 import java.io.IOException;
 
+import org.fxb.experts_staging.utilities.Waits;
 import org.fxb.web.library.Property_File_Reader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
@@ -29,7 +31,10 @@ public class InitiatingBrowser_for_Registration{
 		driver.navigate().to(Property_File_Reader.projectConfigurationReader("ApplicationURL")); // here we are calling the value(url) from the internal file (i.e Property file) for that purpose we use className.methodName(keyValue)
 		//driver.navigate().to("https://experts-staging.legalops.com/register/b694ec07-4ab6-4ce6-b9bc-8b47e3d4c747");
 		driver.manage().window().maximize();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		/* Here apply the wait until the element is visible */
+		By element_locator = By.xpath("//input[@type='text']");
+		Waits.explicit_waitForElementToBe_Visible(element_locator, 10);
 		/*Restricted Page login code*/
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Property_File_Reader.projectConfigurationReader("UserName"));
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(Property_File_Reader.projectConfigurationReader("Password"));
@@ -38,6 +43,7 @@ public class InitiatingBrowser_for_Registration{
 	@AfterSuite
 	public void closeBrowser()
 	{
+		System.out.println("[INFO] : check_closeBrowser_code");
 		driver.quit();
 	}
 }
