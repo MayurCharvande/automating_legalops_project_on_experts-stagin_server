@@ -1,6 +1,7 @@
 package org.fxb.experts_staging.testcases;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import org.fxb.experts_staging.base.InitiatingBrowser_for_Registration;
 import org.fxb.experts_staging.js.JSExecutor;
@@ -10,7 +11,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_Registration {
@@ -18,22 +21,21 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 	@Test(priority = 1)
 	public void step_1_Confirm_Eligibility() throws IOException, InterruptedException {
 		driver.findElement(By.xpath("//label[@for='qualification_check']")).click();// For Employed User
-		driver.findElement(By.xpath("//label[@for='agree2']")).click();
+		JSExecutor.jsClick("//label[@for='agree2']");
 		//driver.findElement(By.xpath("(//button[@type='button'])[1]")).click();
 		JSExecutor.jsClick("(//button[@type='button'])[1]"); // on the 1440 resolution there is a footer hence you can use this code line instead of the above
-		//Thread.sleep(2000); //(if code working then remove this )
 	}
 	@Test(priority = 2, dataProviderClass = Excel_File_Reader.class, dataProvider = "TestData")
 	public void step_2_Create_Your_Account(String fname, String lname, String password, String email, String mob) throws InterruptedException, IOException 
 	{
 		Actions act = new Actions(driver);
-		//Thread.sleep(3000); //(if code working then remove this )
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("//input[@id='user_firstname']"), 10);
 		JSExecutor.sendTextToTextBox("//input[@id='user_firstname']", fname); // 'fname' is the first name of the user
 		JSExecutor.sendTextToTextBox("//input[@id='user_lastname']", lname); // 'lname' is the last name of the user
 		JSExecutor.sendTextToTextBox("//input[@id='user_password']", password);
 		JSExecutor.sendTextToTextBox("//input[@id='confirm_password']", password);
-		// Add debug statements to check for null values
-//		System.out.println("Checking driver: " + (driver != null)); // Checking null pointer exception
+		/* Add debug statements to check for null values*/
+		//System.out.println("Checking driver: " + (driver != null)); // Checking null pointer exception
 		/*Mobile number verification code*/
 		Select dp = new Select(driver.findElement(By.xpath("//select[@id='mobile_country_code']")));
 //		System.out.println("Checking dp: " + (dp != null)); // Checking null pointer exception
@@ -49,40 +51,51 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		JSExecutor.sendTextToTextBox("//input[@id='verify_user_email']", email);
 		JSExecutor.sendTextToTextBox("//input[@id='personal_email']", email);
 		JSExecutor.sendTextToTextBox("//input[@id='conf_personal_email']", email);
-		JSExecutor.scrollToElement("//button[@id='register-step-three']"); 
-		/*EnteringValue in Auto Suggest Dropdown for Current Employer Name*/
-		//Waits.explicit_waitForElementToBe_Present(By.xpath("//div[text()='select']"), 10);
-		Thread.sleep(3000);
-		JSExecutor.jsClick("//div[text()='select']");
-		//Waits.explicit_waitForElementToBe_Visible(By.xpath("(//input[@type='search'])[2]"), 2);// using waits
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("F");
-		Thread.sleep(500);
-     	driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("x");
-		Thread.sleep(500);
-		driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("b");
-//		Thread.sleep(1000); 
-//		//Get list of all the employers present in Auto suggestdropdown 
-//		List<WebElement> employer_list = driver.findElements(By.xpath("//div[@id='bs-select-2']//descendant::ul[@class='dropdown-menu inner ']//descendant::li")); 
-//		Thread.sleep(1000); 
-//		for(WebElement a : employer_list) 
-//		{
-//			Thread.sleep(1000); 
-//			String name = a.getText();
-//			System.out.println("-->"+a.getText()); 
-//			if(name.equalsIgnoreCase("fxbytes")) {
-//				a.click(); 
-//				break; 
-//			} 
-//		} 
-//		Thread.sleep(2000);
-//		//clicking checkbox by js executor
-//		JSExecutor.jsClick("//label[text()='I have read and understood the Membership Terms and Conditions ']"); 
-//		// Scroll down here now write a code to show Alert that "in 10 sec you have to enter captcha"
-//		JSExecutor.jsAlert("Enter Captcha in 10 SECONDS"); 
-//		//Action Events to double click on the captcha field
-//		act.doubleClick(driver.findElement(By.xpath("//input[@id='captcha']"))).perform(); 
-//		Thread.sleep(10000);
+		JSExecutor.scrollToElement("//button[@id='register-step-three']"); 			
+			/*Below if-else statement is used for checking the element is present or not and if element is not visible 
+			 * then it will throw and exception
+			 * */
+			//Waits.explicit_waitForElementToBe_Visible(By.xpath("//div[text()='select']"), 10);
+			WebElement element = driver.findElement(By.xpath("//div[text()='select']"));
+			if(element != null && element.isDisplayed())
+			{
+				JSExecutor.scrollToElement("//div[text()='select']");
+				JSExecutor.jsClick("//div[text()='select']");
+				/*EnteringValue in Auto Suggest Dropdown for Current Employer Name*/
+				driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("F");
+				Thread.sleep(500);
+		     	driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("x");
+				Thread.sleep(500);
+				driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("b");
+				Thread.sleep(500); 
+				//Get list of all the employers present in Auto suggest dropdown 
+				List<WebElement> employer_list = driver.findElements(By.xpath("//div[@id='bs-select-2']//descendant::ul[@class='dropdown-menu inner ']//descendant::li")); 
+				Thread.sleep(1000); 
+				for(WebElement a : employer_list) 
+				{
+					Thread.sleep(1000); 
+					String name = a.getText();
+					System.out.println("-->"+a.getText()); 
+					if(name.equalsIgnoreCase("fxbytes")) {
+						a.click(); 
+						break; 
+					} 
+				} 
+				Thread.sleep(2000);
+			}
+			else
+			{
+				System.out.println("Element is not visible.");
+				throw new RuntimeException("Element is not visible.");
+			}
+		//clicking checkbox by js executor
+		JSExecutor.jsClick("//label[text()='I have read and understood the Membership Terms and Conditions ']"); 
+		// Scroll down here now write a code to show Alert that "in 10 sec you have to enter captcha"
+		JSExecutor.jsAlert("Enter Captcha in 10 SECONDS"); 
+		//Action Events to double click on the captcha field
+		//act.doubleClick(driver.findElement(By.xpath("//input[@id='captcha']"))).perform(); 
+		JSExecutor.jsClick("//input[@id='captcha']");
+		Thread.sleep(10000);
 	}
 	@Test(priority = 3, enabled = false)
 	public void step_2_click_next_button() throws InterruptedException

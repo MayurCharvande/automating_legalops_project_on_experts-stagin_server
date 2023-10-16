@@ -45,5 +45,9 @@ public class JSExecutor extends TC_For_Registration_Experts_Staging
 		Thread.sleep(3000);
 		driver.switchTo().alert().accept();
 	}
-	
+	public static void highlightElement(String elementXpath) 
+	{
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		 jse.executeScript("arguments[0].style.border='3px solid red'", elementXpath);
+	}	
 }
