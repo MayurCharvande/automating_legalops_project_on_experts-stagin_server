@@ -22,7 +22,7 @@ public class InitiatingBrowser_for_Registration{
 	@BeforeSuite
 	public void restrictionPage() throws InterruptedException, IOException
 	{
-		System.setProperty("webdriver.chrome.driver","C:\\ChromeDriver exe file\\116\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes\\src\\main\\resources\\chromedriver.exe");
 		//(personal system path) C:\\ChromeDriver exe file\\116\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe
 		// (office system path) C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes\\src\\main\\resources\\chromedriver.exe
 		ChromeOptions co = new ChromeOptions();

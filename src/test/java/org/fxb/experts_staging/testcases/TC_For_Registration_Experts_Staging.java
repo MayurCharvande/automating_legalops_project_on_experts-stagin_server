@@ -20,13 +20,14 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 
 	@Test(priority = 1)
 	public void step_1_Confirm_Eligibility() throws IOException, InterruptedException {
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("//label[@for='qualification_check']"), 10);
 		driver.findElement(By.xpath("//label[@for='qualification_check']")).click();// For Employed User
 		JSExecutor.jsClick("//label[@for='agree2']");
 		//driver.findElement(By.xpath("(//button[@type='button'])[1]")).click();
 		JSExecutor.jsClick("(//button[@type='button'])[1]"); // on the 1440 resolution there is a footer hence you can use this code line instead of the above
 	}
 	@Test(priority = 2, dataProviderClass = Excel_File_Reader.class, dataProvider = "TestData")
-	public void step_2_Create_Your_Account(String fname, String lname, String password, String email, String mob) throws InterruptedException, IOException 
+	public void step_2_Create_Your_Account(String fname, String lname, String password, String email, String mob, String country_code) throws InterruptedException, IOException 
 	{
 		Actions act = new Actions(driver);
 		Waits.explicit_waitForElementToBe_Visible(By.xpath("//input[@id='user_firstname']"), 10);
@@ -38,10 +39,13 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		//System.out.println("Checking driver: " + (driver != null)); // Checking null pointer exception
 		/*Mobile number verification code*/
 		Select dp = new Select(driver.findElement(By.xpath("//select[@id='mobile_country_code']")));
-//		System.out.println("Checking dp: " + (dp != null)); // Checking null pointer exception
-		dp.selectByValue("+91");
+		WebElement we1 = driver.findElement(By.xpath("//select[@id='mobile_country_code']"));
+		act.click(we1).perform();
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("(//input[@type='search'])[1]"), 10);
+		driver.findElement(By.xpath("(//input[@type='search'])[1]")).sendKeys(country_code);
 		act.sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
 		JSExecutor.sendTextToTextBox("//input[@id='user_mobile']", mob);
+		act.sendKeys(Keys.ENTER).perform();
 //		driver.findElement(By.xpath("//input[@id='user_mobile']")).sendKeys(mob); // by using .sendkeys() it add the new mobile number next to old mobile number 
 		
 		/* Scroll until element visible */
@@ -55,7 +59,6 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 			/*Below if-else statement is used for checking the element is present or not and if element is not visible 
 			 * then it will throw and exception
 			 * */
-			//Waits.explicit_waitForElementToBe_Visible(By.xpath("//div[text()='select']"), 10);
 			WebElement element = driver.findElement(By.xpath("//div[text()='select']"));
 			if(element != null && element.isDisplayed())
 			{
@@ -67,13 +70,14 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		     	driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("x");
 				Thread.sleep(500);
 				driver.findElement(By.xpath("(//input[@type='search'])[2]")).sendKeys("b");
-				Thread.sleep(500); 
+				Thread.sleep(1000); 
 				//Get list of all the employers present in Auto suggest dropdown 
 				List<WebElement> employer_list = driver.findElements(By.xpath("//div[@id='bs-select-2']//descendant::ul[@class='dropdown-menu inner ']//descendant::li")); 
 				Thread.sleep(1000); 
 				for(WebElement a : employer_list) 
 				{
-					Thread.sleep(1000); 
+					//Thread.sleep(1000);
+			    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1)); //instead of applying Thread.sleep() we have applied here implicitly wait
 					String name = a.getText();
 					System.out.println("-->"+a.getText()); 
 					if(name.equalsIgnoreCase("fxbytes")) {
@@ -81,7 +85,6 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 						break; 
 					} 
 				} 
-				Thread.sleep(2000);
 			}
 			else
 			{
@@ -91,69 +94,61 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		//clicking checkbox by js executor
 		JSExecutor.jsClick("//label[text()='I have read and understood the Membership Terms and Conditions ']"); 
 		// Scroll down here now write a code to show Alert that "in 10 sec you have to enter captcha"
-		JSExecutor.jsAlert("Enter Captcha in 10 SECONDS"); 
+		JSExecutor.jsAlert("Enter Captcha in 10 SECONDS");
+		Thread.sleep(3000);
 		//Action Events to double click on the captcha field
 		//act.doubleClick(driver.findElement(By.xpath("//input[@id='captcha']"))).perform(); 
 		JSExecutor.jsClick("//input[@id='captcha']");
-		Thread.sleep(10000);
+		//Thread.sleep(10000);
 	}
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3)
 	public void step_2_click_next_button() throws InterruptedException
 	{
 		/* clicking on the Next button */
-		Thread.sleep(1000);
+    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		JSExecutor.jsClick("//button[@id='register-step-three']");
 	}
-	@Test(priority = 3, enabled = false, dataProviderClass = Excel_File_Reader.class, dataProvider = "Excel_Mobile_Data")
+	@Test(priority = 4, enabled = false, dataProviderClass = Excel_File_Reader.class, dataProvider = "Excel_Mobile_Data")
 	public void mobileNumberVerification(String mob) throws InterruptedException {
 		Actions act = new Actions(driver);
 		/* Select value from the dropdown */
 		Select dp = new Select(driver.findElement(By.xpath("//select[@id='mobile_country_code']")));
 		dp.selectByValue("+91");
 		/* verify number */
-		Thread.sleep(1000);
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("//input[@id='user_mobile']"), 10);
 		JSExecutor.sendTextToTextBox("//input[@id='user_mobile']", mob); // here we are fetching the mobile number from the Excel Sheet 
 		act.sendKeys(Keys.TAB).sendKeys(Keys.TAB).build().perform();
-		Thread.sleep(3000);
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("//button[text()='Verify']"), 10);
 		JSExecutor.jsClick("//button[text()='Verify']");
-		Thread.sleep(3000);
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("//button[text()='Yes, do it!']"), 10);
 		JSExecutor.jsClick("//button[text()='Yes, do it!']");
-		Thread.sleep(15000);
+		Thread.sleep(15000); // Here we have to enter the OTP so wait for 15 second hence used thread.sleep()
 		JSExecutor.jsClick("//input[@id='otp-verify-submit']");
 		Thread.sleep(3000);
 		JSExecutor.jsClick("//button[text()='OK']");
 	}
-	@Test(priority = 4, enabled = false)
-	public void step_3_Basic_Data() throws InterruptedException {
+	@Test(priority = 4, enabled = false, dataProviderClass = Excel_File_Reader.class, dataProvider = "Excel_User_Address_Data")
+	public void step_3_Basic_Data(String address) throws InterruptedException {
 		Actions act = new Actions(driver);
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//input[@id='address_line_one']")).sendKeys("Dewas Naka");
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("//input[@id='address_line_one']"), 10);
+		driver.findElement(By.xpath("//input[@id='address_line_one']")).sendKeys(address); // fetch the Address data of the user from the excel
 		/* Select state value from Auto Suggest dropdown */
 		act.click(driver.findElement(By.xpath("//div[text()='Select a State']"))).perform();
-		Thread.sleep(1000);// until dropdown apears
-		// JSExecutor.sendTextToTextBox("//input[@aria-activedescendant='bs-select-4-0']",
-		// "Washington");
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("//input[@aria-activedescendant='bs-select-4-0']"), 2);// until dropdown apears
+		// JSExecutor.sendTextToTextBox("//input[@aria-activedescendant='bs-select-4-0']", // "Washington"
 		JSExecutor.jsClick("//input[@aria-activedescendant='bs-select-4-0']");
-		Thread.sleep(1000);
-		System.out.println("1");
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("(//input[@type='search'])[4]"), 10);
 		driver.findElement(By.xpath("(//input[@type='search'])[4]")).sendKeys("W");
-		Thread.sleep(2000);
-		System.out.println("2");
+		Thread.sleep(500);
 		driver.findElement(By.xpath("(//input[@type='search'])[4]")).sendKeys("a");
-		Thread.sleep(1000);
-		System.out.println("3");
+		Thread.sleep(500);
 		driver.findElement(By.xpath("(//input[@type='search'])[4]")).sendKeys("s");
-		Thread.sleep(1000);
-		System.out.println("4");
+		Thread.sleep(500);
 		driver.findElement(By.xpath("(//input[@type='search'])[4]")).sendKeys("h");
-		Thread.sleep(3000);// until dropdown apears
-		System.out.println("5");
-		List<WebElement> state_list = driver.findElements(
-				By.xpath("//div[@id='bs-select-4']//descendant::ul[@class='dropdown-menu inner ']//descendant::li"));
-		Thread.sleep(2000);
-		System.out.println("6");
+		Waits.explicit_waitForElementToBe_Visible(By.xpath("//div[@id='bs-select-4']//descendant::ul[@class='dropdown-menu inner ']//descendant::li"), 10);// until dropdown apears
+		List<WebElement> state_list = driver.findElements(By.xpath("//div[@id='bs-select-4']//descendant::ul[@class='dropdown-menu inner ']//descendant::li"));
 		for (WebElement b : state_list) {
-			Thread.sleep(2000);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 			String name = b.getText();
 			System.out.println("-->" + b.getText());
 			if (name.equalsIgnoreCase("washington")) {
