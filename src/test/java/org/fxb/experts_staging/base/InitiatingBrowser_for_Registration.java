@@ -9,8 +9,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 public class InitiatingBrowser_for_Registration{
 	public static WebDriver driver;
@@ -19,9 +25,16 @@ public class InitiatingBrowser_for_Registration{
 	 * because the Excel sheet data is use when you have to run the same testcase with different set of the data  
 	 * e.g suppose you have to use the username and the password for the LoginPage then use the Excel Sheet (i.e @DataProvider)
 	 */
-	@BeforeSuite
-	public void restrictionPage() throws InterruptedException, IOException
+	@BeforeClass
+	@Parameters("Browser") 
+	/*
+	 * This Parameters() is used as we are testing through the TestNG framework and 
+	 * Running the test parallel in the mozilla and chrome browser for this check TestNG.xml file
+	 * */
+	public void restrictionPage(String Browser) throws InterruptedException, IOException
 	{
+	  if(Browser.equalsIgnoreCase("Chrome"))
+	  {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes\\src\\main\\resources\\chromedriver.exe");
 		//(personal system path) C:\\ChromeDriver exe file\\116\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe
 		// (office system path) C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes\\src\\main\\resources\\chromedriver.exe
@@ -31,8 +44,19 @@ public class InitiatingBrowser_for_Registration{
 		driver.navigate().to(Property_File_Reader.projectConfigurationReader("ApplicationURL")); // here we are calling the value(url) from the internal file (i.e Property file) for that purpose we use className.methodName(keyValue)
 		//driver.navigate().to("https://experts-staging.legalops.com/register/b694ec07-4ab6-4ce6-b9bc-8b47e3d4c747");
 		driver.manage().window().maximize();
-		//Thread.sleep(3000);
-		/* Here apply the wait until the element is visible */
+	  }
+	  else if(Browser.equalsIgnoreCase("firefox"))
+	  {
+		  System.setProperty("webdriver.gecko.driver", "C:\\Mozilla Files\\geckodriver-v0.33.0-win64\\geckodriver.exe");
+          driver = new FirefoxDriver();
+          driver.navigate().to(Property_File_Reader.projectConfigurationReader("ApplicationURL")); 
+  		  driver.manage().window().maximize();
+	  }
+	  else 
+	  {
+          throw new IllegalArgumentException("Invalid browser parameter: " + Browser);
+      }
+		/* Here we apply the wait until the element is visible */
 		By element_locator = By.xpath("//input[@type='text']");
 		Waits.explicit_waitForElementToBe_Visible(element_locator, 10);
 		/*Restricted Page login code*/
@@ -40,10 +64,9 @@ public class InitiatingBrowser_for_Registration{
 		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(Property_File_Reader.projectConfigurationReader("Password"));
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
   }
-	@AfterSuite(enabled=false)
+	@AfterClass
 	public void closeBrowser()
 	{
-		System.out.println("[INFO] : check_closeBrowser_code");
 		driver.quit();
 	}
 }

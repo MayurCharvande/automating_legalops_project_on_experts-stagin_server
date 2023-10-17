@@ -1,163 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="5" total="9" passed="3" failed="1" skipped="0">
+<testng-results ignored="7" total="8" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-16T17:50:15 IST" name="Default suite" finished-at="2023-10-16T17:50:31 IST" duration-ms="16325">
+  <suite started-at="2023-10-17T18:23:25 IST" name="FunctionalSuite" finished-at="2023-10-17T18:23:37 IST" duration-ms="12088">
     <groups>
+      <group name="regression">
+        <method signature="TC_For_Registration_Experts_Staging.step_1_Confirm_Eligibility()[pri:1, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@4567f35d]" name="step_1_Confirm_Eligibility" class="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging"/>
+      </group> <!-- regression -->
     </groups>
-    <test started-at="2023-10-16T17:50:15 IST" name="Default test" finished-at="2023-10-16T17:50:31 IST" duration-ms="16325">
+    <test started-at="2023-10-17T18:23:25 IST" name="SmokeTest" finished-at="2023-10-17T18:23:37 IST" duration-ms="12051">
       <class name="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging">
-        <test-method is-config="true" signature="restrictionPage()[pri:0, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-16T17:50:04 IST" name="restrictionPage" finished-at="2023-10-16T17:50:15 IST" duration-ms="10449" status="PASS">
+        <test-method is-config="true" signature="restrictionPage(java.lang.String)[pri:0, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@4567f35d]" started-at="2023-10-17T18:23:25 IST" name="restrictionPage" finished-at="2023-10-17T18:23:35 IST" duration-ms="10445" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- restrictionPage -->
-        <test-method signature="step_1_Confirm_Eligibility()[pri:1, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-16T17:50:15 IST" name="step_1_Confirm_Eligibility" finished-at="2023-10-16T17:50:15 IST" duration-ms="282" status="PASS">
+        <test-method signature="step_1_Confirm_Eligibility()[pri:1, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@4567f35d]" started-at="2023-10-17T18:23:35 IST" name="step_1_Confirm_Eligibility" finished-at="2023-10-17T18:23:36 IST" duration-ms="912" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- step_1_Confirm_Eligibility -->
-        <test-method signature="step_2_Create_Your_Account(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-16T17:50:16 IST" name="step_2_Create_Your_Account" data-provider="TestData" finished-at="2023-10-16T17:50:20 IST" duration-ms="4598" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Mayur]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Charvande]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Fxbytes@123]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[mayur.charvande+4@fxbytes1.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[7620248349]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[91]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
-            <message>
-              <![CDATA[stale element reference: element is not attached to the page document
-  (Session info: chrome=109.0.5414.168)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
-Build info: version: '4.8.3', revision: 'e5e76298c3'
-System info: os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '18.0.2.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [eddf9b1e54a55fbd721c24209c6ebb1b, getElementText {id=2e71a62d-2837-47ff-8ccd-c6ffb3ca8f51}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.168, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\Fxbytes\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:61900}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61900/devtoo..., se:cdpVersion: 109.0.5414.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (eddf9b1e54a55fbd721c24209c6ebb1b)] -> xpath: //div[@id='bs-select-2']//descendant::ul[@class='dropdown-menu inner ']//descendant::li]
-Session ID: eddf9b1e54a55fbd721c24209c6ebb1b]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=109.0.5414.168)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
-Build info: version: '4.8.3', revision: 'e5e76298c3'
-System info: os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '18.0.2.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [eddf9b1e54a55fbd721c24209c6ebb1b, getElementText {id=2e71a62d-2837-47ff-8ccd-c6ffb3ca8f51}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.168, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\Fxbytes\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:61900}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:61900/devtoo..., se:cdpVersion: 109.0.5414.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (eddf9b1e54a55fbd721c24209c6ebb1b)] -> xpath: //div[@id='bs-select-2']//descendant::ul[@class='dropdown-menu inner ']//descendant::li]
-Session ID: eddf9b1e54a55fbd721c24209c6ebb1b
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
-at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:207)
-at org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging.step_2_Create_Your_Account(TC_For_Registration_Experts_Staging.java:81)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:577)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@4567f35d]" started-at="2023-10-17T18:23:36 IST" name="closeBrowser" finished-at="2023-10-17T18:23:37 IST" duration-ms="647" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- step_2_Create_Your_Account -->
-        <test-method signature="step_2_Create_Your_Account(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:2, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-16T17:50:20 IST" name="step_2_Create_Your_Account" data-provider="TestData" finished-at="2023-10-16T17:50:31 IST" duration-ms="10574" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Rahul ]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Charvande]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Fxbytes@124]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[mayur.charvande+3@fxbytes2.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[7045827283]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[92]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- step_2_Create_Your_Account -->
-        <test-method signature="step_2_click_next_button()[pri:3, instance:org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging@3bb9a3ff]" started-at="2023-10-16T17:50:31 IST" name="step_2_click_next_button" finished-at="2023-10-16T17:50:31 IST" duration-ms="30" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- step_2_click_next_button -->
+        </test-method> <!-- closeBrowser -->
       </class> <!-- org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- SmokeTest -->
+    <test started-at="2023-10-17T18:23:37 IST" name="RegressionTest" finished-at="2023-10-17T18:23:37 IST" duration-ms="1">
+    </test> <!-- RegressionTest -->
+  </suite> <!-- FunctionalSuite -->
 </testng-results>
