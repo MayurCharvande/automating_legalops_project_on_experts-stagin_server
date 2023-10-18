@@ -1,33 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="FunctionalSuite" parallel="classes" thread-count="9">
-<parameter name="Browser" value="chrome" />
+<!-- Only to do the regression testing I have created the Regression Suite,
+means whenever we have to do the Regression testing we makes the regression suite by using the TestNG.xml file 
+and then only we run it (NOTE: only for doing regression testing we are making the groups TestNG.xml file here) -->
+<suite name="RegressionSuite" parallel="classes" thread-count="9">
+	<parameter name="Browser" value="chrome" />
 <!--Above enter the value="chrome" for exicuting on the chrome enter the value="firefox" for execuiting on the firfox -->
 <!-- Below is the Smoke testing test methods -->
-  <test name="SmokeTest" >
-    <classes>
-      <class name="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging">
-      	<methods>
-      		<include name="step_1_Confirm_Eligibility"></include>
-      		<exclude name="step_2_Create_Your_Account"></exclude>
-      		<exclude name="step_2_click_next_button"></exclude>
-      		<exclude name="mobileNumberVerification"></exclude>
-      		<exclude name="step_3_Basic_Data"></exclude>
-      		<exclude name="Step_4_Work_Experience"></exclude>
-      		<exclude name="Step_5_Annual_Compensation"></exclude>
-      		<exclude name="Step_5_Education"></exclude>
-      	</methods>
-      </class>
-    </classes>
-  </test> <!-- Test -->
-  <!-- Below is the Regression testing test methods -->
-  <test name="RegressionTest">
-  	<groups>
-  		<run>
-  			<include name="step_1_Confirm_Eligibility"></include>
-  			<exclude name="step_2_Create_Your_Account"></exclude>
-      		<include name="step_2_click_next_button"></include>
-  		</run>
-  	</groups>
-  </test>
+	 <test name="FunctionalTest">
+		<classes>
+			<class
+				name="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging">
+				<methods>
+					<include name="step_1_Confirm_Eligibility"></include>
+					<include name="step_2_Create_Your_Account"></include>
+					<include name="step_2_click_next_button"></include>
+					<exclude name="mobileNumberVerification"></exclude>
+					<exclude name="step_3_Basic_Data"></exclude>
+					<exclude name="Step_4_Work_Experience"></exclude>
+					<exclude name="Step_5_Annual_Compensation"></exclude>
+					<exclude name="Step_5_Education"></exclude>
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+<!-- Below Test is of the Smoke testing test methods -->
+	<test name="SmokeTest">
+		<groups>
+			<run>
+				<include name="smoke"></include>
+			</run>
+		</groups>
+		<classes>
+			<class
+				name="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging">
+			</class>
+		</classes>
+	</test>
+<!-- Below is the Regression testing test methods -->
+<!-- There are 2 cases for defining group tag (below case is the Second case)
+First case: When <groups> tag is defined inside the <suite> tag.
+Second case: When <groups> tag is defined inside the tag. -->
+	<test name="RegressionTest">
+		<groups>
+			<run>
+				<include name="regression"></include>
+			</run>
+		</groups>
+		<classes>
+			<class
+				name="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging">
+				<methods>
+					<!-- Even if any perticular method is added to the group and if you don't wants to run it then you can exclude it -->
+					<exclude name="step_2_Create_Your_Account"></exclude>
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite> <!-- Suite -->
+
+<!-- 
+							*REPORT GENERATION*
+
+We can generate the TestNG reports in two ways:
+1. Emailable Reports (Go to test-output folder > emailable-reports.html > Rt.click > open with > web browser)
+2. Index Reports (Go to test-output folder > index.html > Rt.click > open with > web browser)
+
+We can generate the TestNG Graphical reports by using:
+1. Extent Report
+-->

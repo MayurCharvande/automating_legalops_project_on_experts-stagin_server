@@ -25,7 +25,7 @@ public class InitiatingBrowser_for_Registration{
 	 * because the Excel sheet data is use when you have to run the same testcase with different set of the data  
 	 * e.g suppose you have to use the username and the password for the LoginPage then use the Excel Sheet (i.e @DataProvider)
 	 */
-	@BeforeClass
+	@BeforeClass(groups={"regression", "smoke"})
 	@Parameters("Browser") 
 	/*
 	 * This Parameters() is used as we are testing through the TestNG framework and 
@@ -35,9 +35,8 @@ public class InitiatingBrowser_for_Registration{
 	{
 	  if(Browser.equalsIgnoreCase("Chrome"))
 	  {
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes\\src\\main\\resources\\chromedriver.exe");
-		//(personal system path) C:\\ChromeDriver exe file\\116\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe
-		// (office system path) C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes\\src\\main\\resources\\chromedriver.exe
+		System.setProperty("webdriver.chrome.driver",Property_File_Reader.projectConfigurationReader("OfficialChromebrowserDriverPath"));
+		//System.setProperty("webdriver.chrome.driver",Property_File_Reader.projectConfigurationReader("LocalChromebrowserDriverPath"));
 		ChromeOptions co = new ChromeOptions();
 		co.addArguments("--remote-allow-origins=*");
 		driver = new ChromeDriver(co);
@@ -47,7 +46,7 @@ public class InitiatingBrowser_for_Registration{
 	  }
 	  else if(Browser.equalsIgnoreCase("firefox"))
 	  {
-		  System.setProperty("webdriver.gecko.driver", "C:\\Mozilla Files\\geckodriver-v0.33.0-win64\\geckodriver.exe");
+		  System.setProperty("webdriver.gecko.driver", Property_File_Reader.projectConfigurationReader("OfficialFirefoxbrowserDriverPath"));
           driver = new FirefoxDriver();
           driver.navigate().to(Property_File_Reader.projectConfigurationReader("ApplicationURL")); 
   		  driver.manage().window().maximize();
@@ -60,11 +59,11 @@ public class InitiatingBrowser_for_Registration{
 		By element_locator = By.xpath("//input[@type='text']");
 		Waits.explicit_waitForElementToBe_Visible(element_locator, 10);
 		/*Restricted Page login code*/
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Property_File_Reader.projectConfigurationReader("UserName"));
-		driver.findElement(By.xpath("//input[@type='password']")).sendKeys(Property_File_Reader.projectConfigurationReader("Password"));
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.findElement(By.xpath(Property_File_Reader.projectConfigurationReader("RestrictionPageUser"))).sendKeys(Property_File_Reader.projectConfigurationReader("UserName"));
+		driver.findElement(By.xpath(Property_File_Reader.projectConfigurationReader("RestrictionPagePassword"))).sendKeys(Property_File_Reader.projectConfigurationReader("Password"));
+		driver.findElement(By.xpath(Property_File_Reader.projectConfigurationReader("RestrictionPageSubmitButton"))).click();
   }
-	@AfterClass
+	@AfterClass(alwaysRun=true, enabled=true)
 	public void closeBrowser()
 	{
 		driver.quit();
