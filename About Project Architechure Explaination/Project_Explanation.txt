@@ -1,0 +1,108 @@
+											*POM*
+- I have used POM for build and Dependencies perposes 
+										
+											*WAITS*
+	 /* Explicit wait: for element [Clickable/Visible/Presence]
+	 * if the webelement is not clickable then jvm will still wait upto 10 second 
+	 * and suppose if it is not clickable within 10 second then it will thorw an exception
+	  
+  public static WebElement explicit_waitForElementToBe_Clickable(By locator, int waitForSecond) 
+    {
+        WebDriverWait explicit_wait = new WebDriverWait(driver, Duration.ofSeconds(waitForSecond));
+        WebElement element = explicit_wait.until(ExpectedConditions.elementToBeClickable(locator));
+        return element;
+    }
+	 */
+/*
+     * Implicit Wait: 
+     * If you use implicit wait then it will be applicable to all the element,
+     * Suppose you have to wait for 10 second for element to be present/visible/clickable 
+     * then this will be applicable to all the elements means for that elemets also which are already present/visible/clickable
+     * So its better to use Explicit wait only
+     * Using implicit wait can wait for a specific time until element appear before throwing 'NoSuchElementException'
+     * */
+											----**TESTNG FRAMEWORK**----
+											
+											*REGRESSION TESTING Using TestNG*
+Only to do the regression testing I have created the Regression Suite, means whenever we have to do the Regression testing we makes the regression suite by using the TestNG.xml file 
+and then only we run it (NOTE: only for doing regression testing we are making the groups TestNG.xml file here)
+
+											*TestNG REPORT*
+#We can generate the TestNG reports in two ways:
+1. Emailable Reports (Go to test-output folder > emailable-reports.html > Rt.click > open with > web browser)
+2. Index Reports (Go to test-output folder > index.html > Rt.click > open with > web browser)
+
+#We can generate the TestNG Graphical reports by using:
+1. Extent Report
+
+										*TestNG EXTENTREPORT*
+										
+1. Used to generate the report in html or pie chart 
+2. Add the dependency 
+	<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+	<dependency>
+    	<groupId>com.aventstack</groupId>
+    	<artifactId>extentreports</artifactId>
+    	<version>5.1.1</version>
+	</dependency>
+3. Create the new package (org.fxb.extentreport)
+4. Create the new class (Reports)
+5. write the below code 
+	public ExtentReports addReports()
+	{
+		ExtentSparkReporter obj1 = new ExtentSparkReporter("Ex-Report.html"); 
+		ExtentReports obj2 = new ExtentReports();
+		obj2.attachReporter(obj1);
+		obj2.setSystemInfo("Testing1", "Testing2");
+		return obj2;
+	}
+6. Refresh the Project you can see the new folder created in the Project with the name you have given to your Suite in the TestNG.xml file
+   (RegressionSuite in this case)
+7. Whatever the Test test you have in your TestNG.xml file, there report is created in this folder with the name 
+   you have given to your Test in the testng.xml file
+8. Now whenever you have to see the Report of any perticular test you can see it 
+
+											*ITestListeners*
+ /* ITestListener is an interface provided by the TestNG testing framework. 
+ * It allows you to listen to and respond to various events and statuses during the test execution process.
+ * ITestListnere gives us different methods as given below 
+ * Process:-
+ * 1. Make a class(ListenerTest)in the packege (Utilities)
+ * 2. Implement the ITestListener Interface
+ * 3. Add all the methods in it
+ * 4. Now use this method to what operations you wants to perform on the test case 
+ * 5. Inside the Test class (above the class) you need to write 
+ * 		Listeners(package In Which Listener TestClass is made . class name of the Listnere class . class)
+ * */
+ 										*SCREENSHOTS*
+1. Make a folder "Screenshot"
+2. Add the Below code in the ITestListner On Test Failer Method
+    	/* For saving the name of the screenshot with the unique we need to use the TimeStamp*/
+    	String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+    	String ssSavingFilePath = "C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes_Experts-Staging\\Screenshots\\";
+    	String ssSavingWithName = timestamp + ".jpg";
+    	
+		File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(screenshotFile, new File(ssSavingFilePath + ssSavingWithName));
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		driver.close();	
+		
+										----**BDD FRAMEWORK**----
+1] SetUp: 
+	1. Add Dependencies 
+		- Junit
+		- Cucumber-Java
+		- Cucumber-Junit
+	2. Install Plugin
+		- Cucmber-Eclipse-Plugin
+2] Make the Folder "Feature"
+3] Make the File "MyTest.feature"	
+4] Write the scenarios in ‘MyTest.feature’ file using the Gherkin language
+5] Now we create ‘Runner’ package and then ‘TestRunner.java’ class file under it
+6] Inside the testcase class make the ActionSteps class 
+7] Run the MyTest.feature file 
+8] Copy the data from the console and paste it in the ActionSteps class 

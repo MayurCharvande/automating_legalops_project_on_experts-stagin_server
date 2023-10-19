@@ -3,6 +3,7 @@ package org.fxb.experts_staging.testcases;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
+
 import org.fxb.experts_staging.base.InitiatingBrowser_for_Registration;
 import org.fxb.experts_staging.js.JSExecutor;
 import org.fxb.experts_staging.utilities.Waits;
@@ -12,11 +13,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+@Listeners(org.fxb.experts_staging.utilities.ListenerTest.class) //This is used whenever you are using the ITestListener
 public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_Registration {
 	@Test(priority = 1, groups={"regression", "smoke"})
 	public void step_1_Confirm_Eligibility() throws IOException, InterruptedException {
@@ -122,7 +122,7 @@ public class TC_For_Registration_Experts_Staging extends InitiatingBrowser_for_R
 		{
 		System.out.println("The captcha field value was empty so we have clicked on it");
 		JSExecutor.jsClick(Property_File_Reader.projectConfigurationReader("captchaTextField"));
-		Thread.sleep(10000); // this is for entering the captcha in 10 second 
+		Thread.sleep(1000); // this is for entering the captcha in 10 second 
 		}
 		else
 		{

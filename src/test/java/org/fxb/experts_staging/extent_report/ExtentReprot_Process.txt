@@ -1,4 +1,4 @@
-											*REPORT*
+											*TestNG REPORT*
 #We can generate the TestNG reports in two ways:
 1. Emailable Reports (Go to test-output folder > emailable-reports.html > Rt.click > open with > web browser)
 2. Index Reports (Go to test-output folder > index.html > Rt.click > open with > web browser)
@@ -6,7 +6,7 @@
 #We can generate the TestNG Graphical reports by using:
 1. Extent Report
 
-										*EXTENTREPORT*
+										*TestNG EXTENTREPORT*
 										
 1. Used to generate the report in html or pie chart 
 2. Add the dependency 
@@ -29,5 +29,6 @@
 	}
 6. Refresh the Project you can see the new folder created in the Project with the name you have given to your Suite in the TestNG.xml file
    (RegressionSuite in this case)
-7. Whatever the Test test you have in your TestNG.xml file there report is created in this folder with the name you have given to your Test in the testng.xml file
+7. Whatever the Test test you have in your TestNG.xml file, there report is created in this folder with the name 
+   you have given to your Test in the testng.xml file
 8. Now whenever you have to see the Report of any perticular test you can see it 

@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-RegressionSuite" class="navigator-link">
-              <span class="suite-name border-passed">RegressionSuite</span>
+              <span class="suite-name border-failed">RegressionSuite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,51 +93,55 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">7 methods,   7 passed</span>
+                    <span class="method-stats">6 methods, 3 failed,  3 skipped,  </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-RegressionSuite" class="hide-methods passed suite-RegressionSuite"> (hide)</a> <!-- hide-methods passed suite-RegressionSuite -->
-                      <a href="#" panel-name="suite-RegressionSuite" class="show-methods passed suite-RegressionSuite"> (show)</a> <!-- show-methods passed suite-RegressionSuite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-RegressionSuite" class="hide-methods failed suite-RegressionSuite"> (hide)</a> <!-- hide-methods failed suite-RegressionSuite -->
+                      <a href="#" panel-name="suite-RegressionSuite" class="show-methods failed suite-RegressionSuite"> (show)</a> <!-- show-methods failed suite-RegressionSuite -->
                     </span>
-                    <div class="method-list-content passed suite-RegressionSuite">
+                    <div class="method-list-content failed suite-RegressionSuite">
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-RegressionSuite" title="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging" class="method navigator-link" hash-for-method="step_1_Confirm_Eligibility">step_1_Confirm_Eligibility</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-RegressionSuite" title="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging" class="method navigator-link" hash-for-method="step_1_Confirm_Eligibility">step_1_Confirm_Eligibility</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-RegressionSuite" title="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging" class="method navigator-link" hash-for-method="step_1_Confirm_Eligibility">step_1_Confirm_Eligibility</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                    </div> <!-- method-list-content failed suite-RegressionSuite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-RegressionSuite" class="hide-methods skipped suite-RegressionSuite"> (hide)</a> <!-- hide-methods skipped suite-RegressionSuite -->
+                      <a href="#" panel-name="suite-RegressionSuite" class="show-methods skipped suite-RegressionSuite"> (show)</a> <!-- show-methods skipped suite-RegressionSuite -->
+                    </span>
+                    <div class="method-list-content skipped suite-RegressionSuite">
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="skipped.png" width="3%"/>
                         <a href="#" panel-name="suite-RegressionSuite" title="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging" class="method navigator-link" hash-for-method="step_2_Create_Your_Account(Rahul , Charvande, Fxbytes@124, mayur.charvande+3@fxbytes2.com, 7045827283, 92)">step_2_Create_Your_Account(Rahul , Charvande, Fxbytes@124, mayur.charvande+3@fxbytes2.com, 7045827283, 92)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="skipped.png" width="3%"/>
                         <a href="#" panel-name="suite-RegressionSuite" title="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging" class="method navigator-link" hash-for-method="step_2_Create_Your_Account(Mayur, Charvande, Fxbytes@123, mayur.charvande+4@fxbytes1.com, 7620248349, 91)">step_2_Create_Your_Account(Mayur, Charvande, Fxbytes@123, mayur.charvande+4@fxbytes1.com, 7620248349, 91)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="skipped.png" width="3%"/>
                         <a href="#" panel-name="suite-RegressionSuite" title="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging" class="method navigator-link" hash-for-method="step_2_click_next_button">step_2_click_next_button</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-RegressionSuite" title="org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging" class="method navigator-link" hash-for-method="step_2_click_next_button">step_2_click_next_button</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-RegressionSuite -->
+                    </div> <!-- method-list-content skipped suite-RegressionSuite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -149,9 +153,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-RegressionSuite" class="panel RegressionSuite">
-          <div class="suite-RegressionSuite-class-passed">
+          <div class="suite-RegressionSuite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -160,6 +164,14 @@
                   <a name="step_1_Confirm_Eligibility">
                   </a> <!-- step_1_Confirm_Eligibility -->
                   <span class="method-name">step_1_Confirm_Eligibility</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;Object.toString()&quot; because the return value of &quot;java.util.Properties.get(Object)&quot; is null
+	at org.fxb.web.library.Property_File_Reader.projectConfigurationReader(Property_File_Reader.java:20)
+	at org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging.step_1_Confirm_Eligibility(TC_For_Registration_Experts_Staging.java:25)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+... Removed 10 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -167,6 +179,14 @@
                   <a name="step_1_Confirm_Eligibility">
                   </a> <!-- step_1_Confirm_Eligibility -->
                   <span class="method-name">step_1_Confirm_Eligibility</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;Object.toString()&quot; because the return value of &quot;java.util.Properties.get(Object)&quot; is null
+	at org.fxb.web.library.Property_File_Reader.projectConfigurationReader(Property_File_Reader.java:20)
+	at org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging.step_1_Confirm_Eligibility(TC_For_Registration_Experts_Staging.java:25)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+... Removed 10 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -174,14 +194,51 @@
                   <a name="step_1_Confirm_Eligibility">
                   </a> <!-- step_1_Confirm_Eligibility -->
                   <span class="method-name">step_1_Confirm_Eligibility</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;Object.toString()&quot; because the return value of &quot;java.util.Properties.get(Object)&quot; is null
+	at org.fxb.web.library.Property_File_Reader.projectConfigurationReader(Property_File_Reader.java:20)
+	at org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging.step_1_Confirm_Eligibility(TC_For_Registration_Experts_Staging.java:25)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+... Removed 10 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-RegressionSuite-class-failed -->
+          <div class="suite-RegressionSuite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="step_2_Create_Your_Account(Rahul , Charvande, Fxbytes@124, mayur.charvande+3@fxbytes2.com, 7045827283, 92)">
                   </a> <!-- step_2_Create_Your_Account(Rahul , Charvande, Fxbytes@124, mayur.charvande+3@fxbytes2.com, 7045827283, 92) -->
                   <span class="method-name">step_2_Create_Your_Account</span>
                   <span class="parameters">(Rahul , Charvande, Fxbytes@124, mayur.charvande+3@fxbytes2.com, 7045827283, 92)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;18.0.2.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [77f846cf18b48f7a56fbb75ec82f5a98, setTimeout {implicit=3000}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.168, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\Fxbytes\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:53744}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53744/devtoo..., se:cdpVersion: 109.0.5414.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 77f846cf18b48f7a56fbb75ec82f5a98
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:853)
+	at org.fxb.experts_staging.base.InitiatingBrowser_for_Registration.captureScreenMethod(InitiatingBrowser_for_Registration.java:74)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -190,6 +247,27 @@
                   </a> <!-- step_2_Create_Your_Account(Mayur, Charvande, Fxbytes@123, mayur.charvande+4@fxbytes1.com, 7620248349, 91) -->
                   <span class="method-name">step_2_Create_Your_Account</span>
                   <span class="parameters">(Mayur, Charvande, Fxbytes@123, mayur.charvande+4@fxbytes1.com, 7620248349, 91)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;18.0.2.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [77f846cf18b48f7a56fbb75ec82f5a98, setTimeout {implicit=3000}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.168, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\Fxbytes\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:53744}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53744/devtoo..., se:cdpVersion: 109.0.5414.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 77f846cf18b48f7a56fbb75ec82f5a98
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:853)
+	at org.fxb.experts_staging.base.InitiatingBrowser_for_Registration.captureScreenMethod(InitiatingBrowser_for_Registration.java:74)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -197,17 +275,31 @@
                   <a name="step_2_click_next_button">
                   </a> <!-- step_2_click_next_button -->
                   <span class="method-name">step_2_click_next_button</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="step_2_click_next_button">
-                  </a> <!-- step_2_click_next_button -->
-                  <span class="method-name">step_2_click_next_button</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.8.3&apos;, revision: &apos;e5e76298c3&apos;
+System info: os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;18.0.2.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [77f846cf18b48f7a56fbb75ec82f5a98, setTimeout {implicit=3000}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.168, chrome: {chromedriverVersion: 108.0.5359.71 (1e0e3868ee06..., userDataDir: C:\Users\Fxbytes\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:53744}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53744/devtoo..., se:cdpVersion: 109.0.5414.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 77f846cf18b48f7a56fbb75ec82f5a98
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:853)
+	at org.fxb.experts_staging.base.InitiatingBrowser_for_Registration.captureScreenMethod(InitiatingBrowser_for_Registration.java:74)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-RegressionSuite-class-passed -->
+          </div> <!-- suite-RegressionSuite-class-skipped -->
         </div> <!-- panel RegressionSuite -->
         <div panel-name="test-xml-RegressionSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -252,11 +344,7 @@
       &lt;/run&gt;
     &lt;/groups&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging&quot;&gt;
-        &lt;methods&gt;
-          &lt;exclude name=&quot;step_2_Create_Your_Account&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging --&gt;
+      &lt;class name=&quot;org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- RegressionTest --&gt;
 &lt;/suite&gt; &lt;!-- RegressionSuite --&gt;
@@ -326,40 +414,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(7);
+data.addRows(6);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'step_2_Create_Your_Account')
+data.setCell(0, 1, 'step_1_Confirm_Eligibility')
 data.setCell(0, 2, 'org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging')
-data.setCell(0, 3, 21066);
+data.setCell(0, 3, 754);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'step_2_Create_Your_Account')
+data.setCell(1, 1, 'step_1_Confirm_Eligibility')
 data.setCell(1, 2, 'org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging')
-data.setCell(1, 3, 20655);
+data.setCell(1, 3, 707);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'step_1_Confirm_Eligibility')
 data.setCell(2, 2, 'org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging')
-data.setCell(2, 3, 901);
+data.setCell(2, 3, 691);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'step_1_Confirm_Eligibility')
+data.setCell(3, 1, 'step_2_click_next_button')
 data.setCell(3, 2, 'org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging')
-data.setCell(3, 3, 875);
+data.setCell(3, 3, 0);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'step_1_Confirm_Eligibility')
+data.setCell(4, 1, 'step_2_Create_Your_Account')
 data.setCell(4, 2, 'org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging')
-data.setCell(4, 3, 346);
+data.setCell(4, 3, 0);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'step_2_click_next_button')
+data.setCell(5, 1, 'step_2_Create_Your_Account')
 data.setCell(5, 2, 'org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging')
-data.setCell(5, 3, 61);
-data.setCell(6, 0, 6)
-data.setCell(6, 1, 'step_2_click_next_button')
-data.setCell(6, 2, 'org.fxb.experts_staging.testcases.TC_For_Registration_Experts_Staging')
-data.setCell(6, 3, 44);
+data.setCell(5, 3, 0);
 window.suiteTableData['RegressionSuite']= { tableData: data, tableDiv: 'times-div-RegressionSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 43 seconds</span>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
               <div id="times-div-RegressionSuite">
               </div> <!-- times-div-RegressionSuite -->
             </div> <!-- times-div -->
@@ -374,7 +458,7 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-RegressionSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">18 ignored methods</span>
+            <span class="header-content">17 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
@@ -387,8 +471,6 @@ return data;
                 <span class="ignored-method-name">mobileNumberVerification</span>
                 <br/>
                 <span class="ignored-method-name">step_2_click_next_button</span>
-                <br/>
-                <span class="ignored-method-name">step_2_Create_Your_Account</span>
                 <br/>
                 <span class="ignored-method-name">step_2_Create_Your_Account</span>
                 <br/>
@@ -432,40 +514,68 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">step_1_Confirm_Eligibility</span>
-                <span class="method-start">10005 ms</span>
+                <span class="method-start">10338 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">captureScreenMethod</span>
+                <span class="method-start">15450 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">step_2_Create_Your_Account(Mayur, Charvande, Fxbytes@123, mayur.charvande+4@fxbytes1.com, 7620248349, 91)</span>
-                <span class="method-start">11850 ms</span>
+                <span class="method-start">16372 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">captureScreenMethod</span>
+                <span class="method-start">16381 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">step_2_Create_Your_Account(Rahul , Charvande, Fxbytes@124, mayur.charvande+3@fxbytes2.com, 7045827283, 92)</span>
-                <span class="method-start">32918 ms</span>
+                <span class="method-start">16384 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">captureScreenMethod</span>
+                <span class="method-start">16398 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">step_2_click_next_button</span>
-                <span class="method-start">53575 ms</span>
+                <span class="method-start">16403 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">captureScreenMethod</span>
+                <span class="method-start">16410 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">closeBrowser</span>
+                <span class="method-start">16417 ms</span>
+              </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">restrictionPage(chrome)</span>
-                <span class="method-start">53669 ms</span>
+                <span class="method-start">16996 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">step_1_Confirm_Eligibility</span>
-                <span class="method-start">62601 ms</span>
+                <span class="method-start">26853 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">closeBrowser</span>
+                <span class="method-start">31861 ms</span>
+              </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">restrictionPage(chrome)</span>
-                <span class="method-start">63496 ms</span>
+                <span class="method-start">32406 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">step_1_Confirm_Eligibility</span>
-                <span class="method-start">73737 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">step_2_click_next_button</span>
-                <span class="method-start">74085 ms</span>
+                <span class="method-start">41005 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

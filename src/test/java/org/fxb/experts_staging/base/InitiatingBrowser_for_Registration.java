@@ -1,10 +1,15 @@
 package org.fxb.experts_staging.base;
 
+import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
 import org.fxb.experts_staging.utilities.Waits;
 import org.fxb.web.library.Property_File_Reader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -63,6 +68,14 @@ public class InitiatingBrowser_for_Registration{
 		driver.findElement(By.xpath(Property_File_Reader.projectConfigurationReader("RestrictionPagePassword"))).sendKeys(Property_File_Reader.projectConfigurationReader("Password"));
 		driver.findElement(By.xpath(Property_File_Reader.projectConfigurationReader("RestrictionPageSubmitButton"))).click();
   }
+	@AfterMethod
+	public void captureScreenMethod() throws IOException
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshotFile, new File("C:\\Users\\Fxbytes\\eclipse-workspace\\Fxbytes_Experts-Staging\\Screenshots\\1.jpg"));
+		//driver.close();
+	}
 	@AfterClass(alwaysRun=true, enabled=true)
 	public void closeBrowser()
 	{
