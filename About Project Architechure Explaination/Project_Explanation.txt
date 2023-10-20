@@ -106,3 +106,8 @@ and then only we run it (NOTE: only for doing regression testing we are making t
 6] Inside the testcase class make the ActionSteps class 
 7] Run the MyTest.feature file 
 8] Copy the data from the console and paste it in the ActionSteps class 
+
+											*Data Driven testing using Cucumber*
+											
+											*BDD Report*
+										
